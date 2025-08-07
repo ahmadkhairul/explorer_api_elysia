@@ -23,6 +23,7 @@ export const login = async (ctx: ContextLoginProps) => {
     });
     return returnSuccess(ctx, 200, "login success", { ...rest, token });
   } catch (err) {
+    console.log(err)
     return returnNonSuccess(ctx, 403, "username atau password salah");
   }
 };
@@ -32,6 +33,7 @@ export const auth = async (ctx: ContextLoginProps) => {
     const user = await currentUser(ctx);
     return returnSuccess(ctx, 200, "auth success", { user });
   } catch (err) {
+    console.log(err)
     return returnNonSuccess(ctx, 403, "Expired");
   }
 };
