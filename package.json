@@ -1,0 +1,38 @@
+{
+  "name": "api",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/pg": "^8.11.11",
+    "@typescript-eslint/eslint-plugin": "^8.29.1",
+    "@typescript-eslint/parser": "^8.29.1",
+    "eslint": "8",
+    "eslint-import-resolver-typescript": "^4.3.2",
+    "eslint-plugin-prettier": "^5.2.6",
+    "prettier": "^3.5.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.8.3"
+  },
+  "scripts": {
+    "dev": "bun run --watch index.ts"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "^1.2.0",
+    "@elysiajs/jwt": "^1.2.0",
+    "@elysiajs/static": "^1.2.0",
+    "@supabase/supabase-js": "^2.49.4",
+    "@types/bcrypt": "^5.0.2",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.7",
+    "drizzle-orm": "^0.40.0",
+    "elysia": "^1.2.25",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "pg": "^8.14.1",
+    "postgres": "^3.4.5"
+  }
+}
