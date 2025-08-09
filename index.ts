@@ -115,5 +115,5 @@ app.group("/api-admin/v1", (app) =>
 );
 
 app.listen(process.env.APP_PORT || 3000, () =>
-  console.log("Server running on http://localhost:3000"),
+  console.log("Server running on http://localhost:3000 APP_MODE:", process.env.APP_MODE),
 );
