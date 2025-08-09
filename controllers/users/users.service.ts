@@ -39,7 +39,7 @@ export class UserService {
   }
 
   async create(body: BodyProps) {
-    const { name, username, password, email, role } = body;
+    const { name, username, password, email, role, position, salary } = body;
 
     const hashedPassword = await bcrypt.hash(password, 10); // 10 = salt rounds
 
@@ -51,13 +51,15 @@ export class UserService {
         password: hashedPassword,
         email,
         role,
+        position,
+        salary,
       })
       .returning();
   }
 
   async update(params: ParamsProps, body: BodyProps) {
     const { id } = params;
-    const { name, username, password, email, role } = body;
+    const { name, username, password, email, role, position, salary } = body;
 
     const hashedPassword = await bcrypt.hash(password, 10); // 10 = salt rounds
 
@@ -69,6 +71,8 @@ export class UserService {
         password: hashedPassword,
         email,
         role,
+        position,
+        salary
       })
       .where(eq(users.id, Number(id)))
       .returning();

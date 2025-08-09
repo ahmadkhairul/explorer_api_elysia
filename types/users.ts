@@ -6,6 +6,8 @@ export interface BodyProps {
   password: string;
   email: string;
   role: "admin" | "user";
+  position: string;
+  salary: string;
 }
 
 export interface LoginProps {
@@ -20,6 +22,8 @@ export interface ParamsProps {
   password?: string;
   email?: string;
   name?: string;
+  position?: string;
+  salary?: string;
 }
 
 export const bodySchema = {
@@ -28,6 +32,8 @@ export const bodySchema = {
     username: t.String(),
     password: t.String(),
     email: t.String(),
+    position: t.Optional(t.String()),
+    salary: t.Optional(t.String()),
   }),
 };
 
