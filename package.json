@@ -17,7 +17,7 @@
     "typescript": "^5.8.3"
   },
   "scripts": {
-    "start": "bun run index.ts",
+    "start": "bun index.ts",
     "dev": "bun run --watch index.ts"
   },
   "dependencies": {
