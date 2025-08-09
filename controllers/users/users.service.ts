@@ -22,6 +22,8 @@ export class UserService {
         username: users.username,
         email: users.email,
         role: users.role,
+        position: users.position,
+        salary: users.salary,
         ...(params?.password && { password: users.password }),
       })
       .from(users)
