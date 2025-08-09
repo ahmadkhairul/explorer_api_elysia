@@ -7,6 +7,8 @@ export const users = pgTable("users", {
   email: varchar("email", { length: 255 }).notNull(),
   password: varchar("password", { length: 255 }).notNull(),
   role: text("role").$type<"admin" | "user">().notNull(),
+  salary: text("salary").notNull(),
+  position: text("position").notNull(),
   created_at: timestamp("created_at").defaultNow(),
   updated_at: timestamp("updated_at").defaultNow(),
   deleted_at: timestamp("deleted_at"),
