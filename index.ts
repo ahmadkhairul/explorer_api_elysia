@@ -22,7 +22,8 @@ import {
   bodyEditSchema as fileBodyEditSchema,
   bodySchema as fileBodySchema,
 } from "@/types/files";
-import { bodySchema as userBodySchema } from "@/types/users";
+import { ContextLoginProps, bodySchema as userBodySchema } from "@/types/users";
+import { basicAuth } from "@/helper/basic";
 
 const app = new Elysia();
 
@@ -37,7 +38,7 @@ app.use(
 app.use(
   jwt({
     name: "jwt",
-    secret: process.env.APP_DATA_JWT_SECRET || "tdr-3000",
+    secret: process.env.APP_DATA_JWT_SECRET || "",
   }),
 );
 
@@ -48,7 +49,13 @@ app.use(
   }),
 );
 
-app.post("/api/v1/login", login);
+app.post("/api/v1/login", (ctx: ContextLoginProps) => {
+  const authResult = basicAuth(ctx);
+  if (authResult) return authResult;
+
+  return login(ctx); 
+});
+
 app.post("/api/v1/register", createUsers, userBodySchema);
 app.group("/api/v1", (app) =>
   app
